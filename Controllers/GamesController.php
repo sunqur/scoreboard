@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
 
 class GamesController extends Controller
 {
-  public function GetGames()
+  public function Get_games()
   {
     $gameRepository = new GameRepo();
 
-    $games = $gameRepository->GetGames();
+    $games = $gameRepository->Get_games();
 
     return $games;
   }

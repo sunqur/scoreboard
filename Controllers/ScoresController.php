@@ -11,14 +11,14 @@ use App\Models\User;
 
 class ScoresController extends Controller
 {
-  public function GetScoreboard(Request $request)
+  public function Get_scoreboard(Request $request)
   {
       $data = $request->json()->all();
       $game_id = $data['game_id'];
 
       $scoreRepository = new ScoreRepo();
 
-      $response = $scoreRepository->GetScoreboard($game_id);
+      $response = $scoreRepository->Get_scoreboard($game_id);
 
       return $response;
   }
@@ -31,9 +31,9 @@ class ScoresController extends Controller
       $user_id = $data['user_id'];
       $score = $data['score'];
 
-      $scoreRepository = new ScoreRepository();
+      $scoreRepository = new ScoreRepo();
 
-      $response = $scoreRepository->AddScore($game_id, $user_id, $score);
+      $response = $scoreRepository->Add_score($game_id, $user_id, $score);
 
       return $response;
   }
