@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repo;
 
-use App\Score;
-use App\Game;
-use App\User;
+use App\Models\ScoreModels;
+use App\Models\GameModels;
+use App\Models\User;
 use Carbon\Carbon;
 
-class ScoreRepository {
+class ScoreRepo {
 
     CONST CACHE_KEY = 'SCORE';
 
-    public function GetScoreboard($game_id)
+    public function Get_scoreboard($game_id)
     {
 
         $response = [];

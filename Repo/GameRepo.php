@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repo;
 
-use App\Game;
+use App\Models\GameModels;
 use Carbon\Carbon;
 
-class GameRepository {
+class GameRepo {
 
     CONST CACHE_KEY = 'GAMES';
 
-    public function GetGames() {
+    public function Get_games() {
 
       $cacheKey = 'all';
       $key = $this->GetCacheKey($cacheKey);
 
-      $gameModel = new Game();
+      $gameModel = new GameModels();
 
       $games = cache()->remember($cacheKey, Carbon::now()->addMinutes(5), function() use($gameModel) {
         return $gameModel->get();
@@ -49,3 +49,4 @@ class GameRepository {
 
         return self::CACHE_KEY .".$key";
     }
+}
