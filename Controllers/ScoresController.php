@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Repository\ScoreRepo;
+use App\Repo\ScoreRepo;
 use App\Models\GameModels;
 use App\Models\ScoreModels;
 use App\Models\User;
@@ -23,7 +23,7 @@ class ScoresController extends Controller
       return $response;
   }
 
-  public function AddScore(Request $request)
+  public function Add_score(Request $request)
   {
       $data = $request->json()->all();
 
