@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ScoreModels;
 
 class GameModels extends Model
 {
@@ -11,6 +12,6 @@ class GameModels extends Model
 
   public function score()
   {
-      return $this->hasMany('App\Score');
+      return $this->hasMany('App\Models\ScoreModels');
   }
 }

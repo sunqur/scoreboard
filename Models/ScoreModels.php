@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\GameModels;
+use App\Models\User;
+
+
 
 class ScoreModels extends Model
 {
@@ -12,11 +16,11 @@ class ScoreModels extends Model
 
     public function game()
     {
-        return $this->hasOne('App\Game');
+        return $this->hasOne('App\Models\GameModels');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }
