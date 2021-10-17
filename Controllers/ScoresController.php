@@ -13,12 +13,12 @@ class ScoresController extends Controller
 {
   public function Get_scoreboard(Request $request)
   {
-      $data = $request->json()->all();
-      $game_id = $data['game_id'];
+      $data = $request->json(['game_id']);
+
 
       $scoreRepository = new ScoreRepo();
 
-      $response = $scoreRepository->Get_scoreboard($game_id);
+      $response = $scoreRepository->Get_scoreboard($data);
 
       return $response;
   }
