@@ -16,7 +16,7 @@ class ScoreRepo {
 
         $response = [];
 
-        $gameModel = new Game();
+        $gameModel = new GameModels();
         $game = $gameModel->where('id', $game_id)->first();
 
         $scores = collect($game->score)->sortByDesc('score')->unique('user')->values()->all();
@@ -43,11 +43,11 @@ class ScoreRepo {
         return $response;
     }
 
-    public function AddScore($game_id, $user_id, $score)
+    public function Add_score($game_id, $user_id, $score)
     {
         $response = [];
 
-        $scoreModel = new Score();
+        $scoreModel = new ScoreModels();
 
         $scoreData = $this->GetScore($game_id, $user_id);
 
