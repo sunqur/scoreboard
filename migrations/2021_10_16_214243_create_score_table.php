@@ -15,14 +15,14 @@ class CreateScoreTable extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
-            $table->integer('game_id')->unsigned();
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('game_id')->unsigned();
             $table->integer('score');
             $table->integer('old_rank')->nullable();
             $table->integer('new_rank')->nullable();
             $table->timestamps();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('game_id')->references('id')->on('games');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
         });
     }
 
